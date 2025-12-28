@@ -3,15 +3,10 @@ workflows:
     name: Default Workflow
     environment:
       flutter: stable
-    triggering:
-      events:
-        - push
     scripts:
       - name: Get Flutter packages
         script: |
-          cd trigo_project
           flutter pub get
       - name: Build APK
         script: |
-          cd trigo_project
           flutter build apk --release
