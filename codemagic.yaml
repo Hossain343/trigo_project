@@ -1,21 +1,23 @@
 workflows:
   default-workflow:
     name: Default Workflow
+
     environment:
       flutter: stable
 
     scripts:
-      - name: Check directory
+      - name: Debug paths
         script: |
-          pwd
+          echo "CM_BUILD_DIR = $CM_BUILD_DIR"
+          cd $CM_BUILD_DIR
           ls
 
       - name: Get Flutter packages
-        working_directory: .
         script: |
+          cd $CM_BUILD_DIR
           flutter pub get
 
       - name: Build APK
-        working_directory: .
         script: |
+          cd $CM_BUILD_DIR
           flutter build apk --release
