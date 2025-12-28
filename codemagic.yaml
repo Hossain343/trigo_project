@@ -3,10 +3,19 @@ workflows:
     name: Default Workflow
     environment:
       flutter: stable
+
     scripts:
+      - name: Check directory
+        script: |
+          pwd
+          ls
+
       - name: Get Flutter packages
+        working_directory: .
         script: |
           flutter pub get
+
       - name: Build APK
+        working_directory: .
         script: |
           flutter build apk --release
