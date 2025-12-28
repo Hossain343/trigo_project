@@ -1,0 +1,23 @@
+workflows:
+  default-workflow:
+    name: Default Workflow
+
+    environment:
+      flutter: stable
+
+    scripts:
+      - name: Debug current directory
+        script: |
+          echo "PWD = $(pwd)"
+          echo "Listing files at current directory:"
+          ls -la
+
+      - name: Get Flutter packages
+        script: |
+          flutter pub get
+
+      - name: Build APK
+        script: |
+          flutter build apk --release
+
+# ممد
