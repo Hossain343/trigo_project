@@ -2,22 +2,23 @@ workflows:
   default-workflow:
     name: Default Workflow
 
+    # 1) مطمئن می‌شیم ریشه ریپو به عنوان working directory استفاده بشه
+    working_directory: .
+
     environment:
       flutter: stable
 
     scripts:
-      - name: Debug paths
+      - name: Debug current directory
         script: |
-          echo "CM_BUILD_DIR = $CM_BUILD_DIR"
-          cd $CM_BUILD_DIR
-          ls
+          echo "PWD = $(pwd)"
+          echo "Listing files at current directory:"
+          ls -la
 
       - name: Get Flutter packages
         script: |
-          cd $CM_BUILD_DIR
           flutter pub get
 
       - name: Build APK
         script: |
-          cd $CM_BUILD_DIR
           flutter build apk --release
