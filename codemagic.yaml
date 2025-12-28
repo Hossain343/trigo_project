@@ -2,9 +2,6 @@ workflows:
   default-workflow:
     name: Default Workflow
 
-    # 1) مطمئن می‌شیم ریشه ریپو به عنوان working directory استفاده بشه
-    working_directory: .
-
     environment:
       flutter: stable
 
